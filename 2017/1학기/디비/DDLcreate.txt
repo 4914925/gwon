@@ -1,0 +1,320 @@
+drop table 백화점;
+drop table 주차회사;
+drop table 고객;
+drop table 직원;
+drop table 매장;
+drop table 혜택;
+drop table 멤버쉽;
+drop table 정보이용안내;
+drop table 브랜드;
+drop table 제품;
+drop table 휴가;
+drop table 사이트;
+drop table IT회사;
+drop table 동아리;
+drop table 육아;
+drop table 이벤트;
+drop table 급식업체;
+drop table 부지주인;
+drop table 부동산;
+drop table 식당;
+drop table 경쟁기업;
+drop table 모기업;
+drop table 제휴기업;
+drop table 임차계약;
+drop table 경쟁;
+drop table 고객서비스;
+drop table 공급;
+drop table 복지;
+drop table 주차;
+drop table 구매;
+drop table 할인;
+
+create table 백화점
+(
+	백화점이름 varchar2(30) not null, 
+	보유모기업명 varchar2(30),
+	백화점위치 varchar2(30) 
+	primary key,
+	constraint foreign key 보유모기업명 references 모기업(모기업명) on delete cascade
+);
+create table 직원
+(	
+	직원이름  varchar2(30) not null, 
+	고용백화점위치 varchar2(30) not null,
+	커뮤니티ID varchar2(30) null,
+	직원번호  number(30) 
+	primary key,
+	constraint 고용 foreign key 고용백화점위치 references 백화점(백화점위치)
+	on delete cascade,
+	constraint 커뮤니티 foreign key 커뮤니티ID references 사이트(ID)
+	on delete cascade
+);
+create table 식당
+(
+	위치  varchar2(30) not null, 
+	자체운영백화점위치 varchar2(30) null,
+	영양사이름  varchar2(30) 
+	primary key,
+	constraint 자체운영 foreign key 자체운영백화점위치 references 백화점(백화점위치)
+	on delete cascade
+);
+create table 주차회사
+(
+	주차대수  number(30) not null, 
+	회사명  varchar2(30) 
+	primary key
+);
+create table 모기업
+(
+	CEO  varchar2(30) not null, 
+	모기업명 varchar2(30) 
+	primary key
+);
+create table 브랜드
+(
+	브랜드이름  varchar2(30) not null, 
+	지점명  varchar2(30) 
+	primary key
+);
+create table 매장
+(
+	방문자수  number(30) null, 
+	매장위치  varchar2(30) 
+	primary key
+);
+create table 제품
+(
+	제품수량  number(30) null, 
+	제품번호  number(30) 
+	primary key
+);
+create table 고객
+(
+	고객이름  varchar2(30) not null,
+	고객번호  number(30) 
+	primary key
+);
+create table 혜택
+(
+	등급별혜택  varchar2(30) null, 
+	등급  number(30) 
+	primary key
+);
+create table 멤버쉽
+(
+	멤버쉽등급 number(30) not null, 
+	멤버쉽번호  number(30) 
+	primary key
+);
+create table 정보이용안내
+(
+	내규  varchar2(30) not null,
+	온라인주소  varchar2(30) null,
+	항목번호 number(30) 
+	primary key
+);
+create table 부동산
+(
+	중개인  varchar2(30) not null, 
+	공인중개사자격증번호  number(30) 
+	primary key
+);
+create table 부지주인
+(
+	부지주인이름  varchar2(30) not null, 
+	주민등록번호  varchar2(30) check (주민등록번호 like '______-_______')
+	primary key
+);
+create table 급식업체
+(
+	대표자명  varchar2(30) not null, 
+	위탁영양사 varchar2(30) not null,
+	사업자번호  number(30) 
+	primary key,
+	constraint 위탁 foreign key 위탁영양사 references 식당(영양사) on delete cascade
+);
+create table 육아
+(
+	나이 number(30) null, 
+	자녀수 number(30) not null,
+	어린이집명 varchar2(30) 
+	primary key
+);
+create table 동아리
+(
+	인원  number(30) not null,
+	동아리명  varchar2(30) 
+	primary key
+);
+create table 제휴기업
+(
+	분야  varchar2(30) null,
+	기업명  varchar2(30) 
+	primary key
+);
+create table 휴가
+(
+	휴가일수  number(30) not null, 
+	날짜  number(30) 
+	primary key
+);
+create table 사이트
+(
+	사번  number(30) not null, 
+	관리기업명 varchar2(30) 
+	ID  varchar2(30),
+	constraint 사이트키 primary key (사번,ID),
+	foreign key 사번 references 직원(직원번호) on delete cascade,
+	foreign key 관리기업명 references IT회사(기업명) on delete cascade
+);
+create table IT회사
+(
+	회사위치  varchar2(30) not null, 
+	대표자  varchar2(30) not null,
+	업무명 varchar2(30) not null,
+	기업명 varchar2(30) 
+	primary key
+);
+create table 경쟁기업
+(
+	모기업  varchar2(30) not null, 
+	경쟁기업위치  varchar2(30) not null,
+	매출 number(30) not null, 
+	주용경쟁분야 varchar2(30) null,
+	경쟁기업이름 varchar2(30) 
+	primary key	
+);
+create table 이벤트
+(
+	개최일  number(30) not null, 
+	행사명  varchar2(30) 
+	primary key
+);
+
+create table 임차계약
+(
+	공인중개사번호  number(30) , 
+	임대인주민등록번호  varchar2(30) check (임대인주민등록번호 like '______-_______'),
+	임대백화점위치 varchar2(30) ,
+	매매금 number(30)  not null,
+	constraint 임차계약키 primary key 
+	(공인중개사번호,임대인주민등록번호,임대백화점위치),
+	constraint 임차계약외래키1 foreign key 
+	(공인중개사번호) references 부동산(공인중개사자격증번호),
+	constraint 임차계약외래키2 foreign key 
+	(임대인주민등록번호) references 부지주인(주민등록번호),
+	constraint 임차계약외래키3 foreign key 
+	(임대백화점위치) references 백화점(백화점위치)
+);
+create table 경쟁
+(
+	경쟁_기업이름  varchar2(30) not null, 
+	자사백화점위치  varchar2(30)  not null,
+	constraint 경쟁키 primary key 
+	(경쟁_기업이름,자사백화점위치),
+	constraint 경쟁외래키1 foreign key 
+	(경쟁_기업이름) references 경쟁기업(경쟁기업이름),
+	constraint 경쟁외래키2 foreign key 
+	(자사백화점위치) references 백화점(백화점위치)
+);
+create table 고객서비스
+(
+	정보항목번호  number(30) not null, 
+	고객멤버쉽번호  number(30) not null,
+	고객등급 number(30) not null,
+	이용매장위치 varchar2(30)  not null,
+	constraint 고객서비스키 primary key 
+	(정보항목번호, 고객멤버쉽번호, 고객등급, 이용매장위치),
+	constraint 고객서비스외래키1 foreign key 
+	(정보항목번호) references 정보이용안내(항목번호),
+	constraint 고객서비스외래키2 foreign key 
+	(고객멤버쉽번호) references 멤버쉽(멤버쉽번호),
+	constraint 고객서비스외래키3 foreign key 
+	(고객등급) references 혜택(등급),
+	constraint 고객서비스외래키4 foreign key 
+	(이용매장위치) references 매장(매장위치)
+);
+create table 공급
+(
+	공급브랜드지점명  varchar2(30) not null, 
+	공급제품번호  number(30) not null,
+	공급매장위치  varchar2(30)  not null,
+	constraint 공급키 primary key 
+	(공급브랜드지점명, 공급제품번호,공급매장위치),
+	constraint 공급외래키1 foreign key 
+	(공급브랜드지점명) references 브랜드(지점명),
+	constraint 공급외래키2 foreign key 
+	(공급제품번호) references 제품(제품번호),
+	constraint 공급외래키3 foreign key 
+	(공급매장위치) references 매장(매장위치)
+);
+create table 복지
+(
+	복지행사명  varchar2(30) null, 
+	복지어린이집명  varchar2(30) null,
+	복지제휴기업명  varchar2(30) null,
+	복지휴가날짜 number(30) null,
+	복지직원번호 number(30) null,
+	복지백화점위치 varchar2(30) null,
+	constraint 복지키 primary key 
+	(복지행사명, 복지어린이집명, 복지제휴기업명, 복지휴가날짜,
+	복지직원번호,복지백화점위치),
+	constraint 복지외래키1 foreign key 
+	(복지행사명) references 이벤트(행사명),
+	constraint 복지외래키2 foreign key 
+	(복지어린이집명) references 육아(어린이집명),
+	constraint 복지외래키3 foreign key 
+	(복지제휴기업명) references 제휴기업(기업명),
+	constraint 복지외래키4 foreign key 
+	(복지휴가날짜) references 휴가(날짜),
+	constraint 복지외래키5 foreign key 
+	(복지직원번호) references 직원(직원번호),
+	constraint 복지외래키6 foreign key 
+	(복지백화점위치) references 백화점(백화점위치)
+);
+create table 주차
+(
+	주차백화점위치  varchar2(30) not null, 
+	주차직원번호  number(30) not null,
+	주차회사명 varchar2(30) not null,
+	주차고객번호 number(30)  not null,
+	constraint 주차키 primary key 
+	(주차백화점위치, 주차직원번호, 주차회사명, 주차고객번호),
+	constraint 주차외래키1 foreign key 
+	(주차백화점위치) references 백화점(백화점위치),
+	constraint 주차외래키2 foreign key 
+	(주차직원번호) references 직원(직원번호),
+	constraint 주차외래키3 foreign key 
+	(주차회사명) references 주차회사(회사명),
+	constraint 주차외래키4 foreign key 
+	(주차고객번호) references 고객(고객번호)
+);
+create table 구매
+(
+	구매백화점위치  varchar2(30) not null, 
+	구매제품번호  number(30) not null,
+	구매고객번호 number(30)  not null,
+	constraint 구매키 primary key 
+	(구매백화점위치, 구매제품번호, 구매고객번호),
+	constraint 구매외래키1 foreign key 
+	(구매백화점위치) references 백화점(백화점위치),
+	constraint 구매외래키2 foreign key 
+	(구매제품번호) references 제품(제품번호),
+	constraint 구매외래키3 foreign key 
+	(구매고객번호) references 고객(고객번호)
+);
+create table 할인
+(
+	할인제휴기업명  varchar2(30) not null, 
+	할인휴가날짜  number(30) not null,
+	할인직원번호 number(30) not null,
+	constraint 할인키 primary key 
+	(할인제휴기업명,할인휴가날짜,할인직원번호),
+	constraint 할인외래키1 foreign key 
+	(할인제휴기업명) references 제휴기업(기업명),
+	constraint 할인외래키2 foreign key 
+	(할인휴가날짜) references 휴가(날짜),
+	constraint 할인외래키3 foreign key 
+	(할인직원번호) references 직원(직원번호)
+);

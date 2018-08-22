@@ -1,0 +1,95 @@
+import turtle
+
+class Player:
+    def __init__(self, name, color, stampColor, startpos, tu): # 생성자, 플레이어 이름, 터틀 색, 도시 색, 시작 위치, 맵 터틀
+        self.name = name # 플레이어 이름
+        self.pos = 32 # 도시 번호, 맨 첫시작은 32로 시작
+        self.t = turtle.Turtle() # 플레이어의 터틀
+        self.t.shape('turtle') 
+        self.t.color(color) # 터틀 색으로 지정
+        self.t.up()
+        self.t.setpos(-520,startpos) # 터틀 시작 위치로 이동
+        self.t.write(name, align='center', font =  ('맑은 고딕', 10, 'bold')) # 플레이어 이름 터틀 화면에 출력
+        self.t.setpos(-480,startpos+10) 
+        self.t.speed(1)
+        self.stampColor = stampColor # 도시 색 지정
+        self.tu = tu # 맵 터틀
+        self.money = 150 # 시작 금액 = 150만원
+        self.cities = dict() # 플레이어가 가지고 있는 도시를 저장하는 딕셔너리, key:도시이름, value:도시구입가격
+        self.isIsland = 0 # 플레이어가 무인도에 갇혀있어야 하는 턴수를 저장하는 변수
+        self.isContribution = False # 플레이어가 현재 사회복지기구에 있는지 없는지를 나타내는 변수
+        self.isUniverse = False # 플레이어가 현재 우주여행에 있는지 없는지를 나타내는 변수
+        self.citypos = dict() # 플레이어가 가지고 있는 도시의 위치를 저장하는 딕셔너리, key: 도시이름, value: 도시 위치 튜플
+                              # 매각시 해당 도시 표시를 지워줄 때 사용
+
+
+    def go(self, result): # result만큼 전진하는 함수
+        for i in range(1, result+1):
+            if self.pos != 32 and (self.pos % 8) == 0: # 모서리이면 왼쪽으로 90도 회전
+                self.t.left(90)
+            self.t.fd(100)
+            self.pos = (self.pos+1) % 32 # 위치는 0~31의 값
+            
+            if self.pos == 0: # 출발지로 돌아왔을 때
+                self.money += 5 # 완주시 월급 5만원 지급
+                print(self.name, '님은 완주를 했으므로 월급 5만원이 지급됩니다! 현재 돈 :', self.money,'만원')
+    
+                
+    def buyCity(self, cityName, cityPrice): # 도시를 구입하는 함수, 도시이름과 도시 구입가격을 입력받음
+        if(cityPrice > self.money): # 현재 가진 금액보다 구입 금액이 큰 경우
+            print('가진 돈이 부족하여 구입할 수 없습니다.')
+            return; # 살수 없음
+        
+        self.cities[cityName] = cityPrice # 도시 저장
+        self.citypos[cityName] = self.t.pos() # 도시 위치 저장
+        self.money -= cityPrice # 도시 금액만큼 현재 소지금 차감
+        self.t.dot(20, self.stampColor) # 맵에 도시 표시
+        print(cityName, '을(를) 구입했습니다. 남은 돈 :', self.money,'만원')
+    
+
+    def payCity(self, cityPrice): # 통행료를 지불하는 함수, 지불해야할 가격을 입력받음
+        re = 2 # 파산과 매각을 하지 않고 지불에 성공한 경우 리턴하는 값
+        
+        while(cityPrice > self.money): # 가진 돈으로 통행료를 지불할 수 없을 경우
+            print('가진 돈이 부족하여 지불할 수 없습니다. 현재 돈 :', self.money,'만원')
+            s = input('파산(1)과 매각(2)을 선택하세요. ')
+
+            if s == '1': # 파산 선택
+                print('파산하셨습니다.')
+                re = 0 # 파산한 경우 리턴하는 값
+                break;
+            
+            elif s == '2':# 매각 선택
+                re = 1 # 매각한 경우 리턴하는 값
+                print('매각을 선택하셨습니다.')
+                if len(self.cities) == 0 : # 가진 도시가 하나도 없을 경우
+                    print('매각할 수 있는 도시가 없습니다.')
+                    re = 0 # 파산
+                    break;
+                print('=========================================')
+                for cityName in self.cities.keys():
+                    print(cityName, self.cities[cityName],'만원') # 가지고 있는 도시와 매각시 받을 금액(=구매금액) 출력
+                print('=========================================')
+                city = input('상단의 도시들 중 하나를 선택하세요 : ')
+                while self.hasCity(city) == False: # 잘못 입력한 경우
+                    print('잘못 입력하셨습니다. 다시 입력해주세요. ')
+                    city = input('상단의 도시들 중 하나를 선택하세요 : ')
+                self.money += self.cities[city] # 매각 금액만큼 소지금에 더해줌
+                
+                self.tu.goto(self.citypos[city]) # 매각했으므로 해당 도시위치로 가서,
+                self.tu.dot(20, 'white')         # 도시표시를 맵에서 지움
+                
+                del self.cities[city] # 딕셔너리에서도 해당 도시 삭제
+                del self.citypos[city] # 딕셔너리에서도 해당 도시 삭제
+                
+        if re != 0: # 파산한 경우가 아니면
+            self.money -= cityPrice # 금액 지불
+        
+        return re #(0: 파산, 1: 매각, 2: 정상지불)
+    
+    def hasCity(self, cityName): # 도시 이름을 입력받아 해당 도시를 가지고 있는지 아닌지 리턴(가지고 있으면 true, 아니면 false)
+        return cityName in self.cities
+            
+        
+    def payContribution(self): # 사회복지기금 지불
+        return self.payCity(2) # 통행료 2만원 지불과 동일하게 처리

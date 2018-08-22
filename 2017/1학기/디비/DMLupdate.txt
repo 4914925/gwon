@@ -1,0 +1,24 @@
+경쟁기업의 모기업이 무민스인 것의 경쟁기업 이름을 무민이로 바꾸기
+select * from 경쟁기업 where 모기업='무민스';
+update 경쟁기업 set 경쟁기업이름='무민이' where 모기업='무민스';
+select * from 경쟁기업 where 모기업='무민스';
+
+제휴기업의 기업명이 LG인 것의 분야를 전자로 수정하기
+select * from 제휴기업 where 기업명='LG';
+update 제휴기업 set 분야='전자' where 기업명='LG';
+select * from 제휴기업 where 기업명='LG';
+
+음악회 이벤트의 개최일을 2018년 1월1일로 바꾸기
+select * from 이벤트 where 행사명='음악회';
+update 이벤트 set 개최일=20180101 where 행사명='음악회';
+select * from 이벤트 where 행사명='음악회';
+
+모기업의 CEO가 장사장인 모기업의 이름을 ssg로 수정하기
+select * from 모기업 where CEO='장사장';
+update 모기업 set 모기업명='ssg' where CEO='장사장';
+select * from 모기업 where CEO='장사장';
+
+소주차회사의 주차대수를 3000으로 수정하기
+select * from 주차회사 where 주차회사명='소주차회사';
+update 주차회사 set 주차대수=3000 where 주차회사명='소주차회사';
+select * from 주차회사 where 주차회사명='소주차회사';

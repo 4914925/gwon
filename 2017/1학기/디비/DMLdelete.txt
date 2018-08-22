@@ -1,0 +1,24 @@
+직원이름이 이사원인 직원을 삭제하기
+select 직원이름 from 직원 where 직원이름='이사원';
+delete from 직원 where 직원이름='이사원';
+select * from 직원;
+
+서안어린이집에 다니는 아이를 가진 육아 복지혜택을 삭제하기
+select 어린이집명 from 육아 where 어린이집명='서안';
+delete from 육아 where 어린이집명='서안';
+select * from 육아;
+
+휴가날짜가 2016년 5월 10일 이후인 휴가일을 삭제하기
+select 휴가날짜 from 휴가 where 휴가날짜>20160510;
+delete from 휴가 where 휴가날짜>20160510;
+select * from 휴가;
+
+조기축구 동아리를 삭제하기
+select 동아리명 from 동아리 where 동아리명='조기축구';
+delete from 동아리 where 동아리명='조기축구';
+select * from 동아리;
+
+역삼에 있는 IT회사를 삭제하기
+select * from IT회사 where IT회사위치='역삼';
+delete from IT회사 where IT회사위치='역삼';
+select * from IT회사;

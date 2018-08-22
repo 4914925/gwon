@@ -1,0 +1,464 @@
+insert into 백화점 values('신세계','신세계','강남');
+insert into 백화점 values('롯데','롯데','명동');
+insert into 백화점 values('신세계','신세계','영등포');
+insert into 백화점 values('롯데','롯데','광교');
+insert into 백화점 values('현대','현대','목동');
+insert into 백화점 values('갤러리아','한화','청담');
+
+
+insert into 직원 values('김사원','강남',1246432);
+insert into 직원 values('김사원','강남',1454432);
+insert into 직원 values('김사원','강남',6445532);
+insert into 직원 values('이사원','강남',2342423);
+insert into 직원 values('이사원','강남',2645423);
+insert into 직원 values('이사원','강남',2456182);
+insert into 직원 values('이사원','강남',4895612);
+insert into 직원 values('박사원','강남',2453624);
+insert into 직원 values('최사원','강남',3423344);
+insert into 직원 values('권사원','강남',5645877);
+insert into 직원 values('진사원','강남',2353657);
+insert into 직원 values('윤사원','강남',8567576);
+insert into 직원 values('위사원','강남',4354356);
+insert into 직원 values('표사원','강남',3646776);
+insert into 직원 values('신사원','강남',7475623);
+insert into 직원 values('서사원','강남',4353453);
+insert into 직원 values('안사원','강남',5436775);
+insert into 직원 values('수사원','강남',3467432);
+insert into 직원 values('문사원','강남',3684213);
+
+insert into 직원 values('김사원','명동',6246363);
+insert into 직원 values('김사원','명동',3747546);
+insert into 직원 values('이사원','명동',9685746);
+insert into 직원 values('박사원','명동',5677842);
+insert into 직원 values('최사원','명동',1035776);
+insert into 직원 values('권사원','명동',2564345);
+insert into 직원 values('진사원','명동',2585675);
+insert into 직원 values('윤사원','명동',8166476);
+insert into 직원 values('위사원','명동',6796868);
+insert into 직원 values('표사원','명동',3347354);
+insert into 직원 values('신사원','명동',4378765);
+insert into 직원 values('서사원','명동',4468567);
+insert into 직원 values('안사원','명동',5234642);
+insert into 직원 values('수사원','명동',3657467);
+insert into 직원 values('문사원','명동',3464335);
+
+
+insert into 직원 values('김사원','영등포',1735632);
+insert into 직원 values('김사원','영등포',5976537);
+insert into 직원 values('이사원','영등포',4978245);
+insert into 직원 values('이사원','영등포',4890356);
+insert into 직원 values('박사원','영등포',5385432);
+insert into 직원 values('최사원','영등포',8467489);
+insert into 직원 values('권사원','영등포',7890376);
+insert into 직원 values('안사원','영등포',6384658);
+insert into 직원 values('수사원','영등포',8646824);
+insert into 직원 values('문사원','영등포',2464378);
+
+insert into 직원 values('김사원','광교',6246363);
+insert into 직원 values('김사원','광교',3747546);
+insert into 직원 values('이사원','광교',9685746);
+insert into 직원 values('박사원','광교',5677842);
+insert into 직원 values('최사원','광교',1035776);
+insert into 직원 values('권사원','광교',2564345);
+insert into 직원 values('진사원','광교',2585675);
+insert into 직원 values('함사원','광교',8166476);
+insert into 직원 values('용사원','광교',6796868);
+insert into 직원 values('서사원','광교',3347354);
+insert into 직원 values('영사원','광교',4378765);
+insert into 직원 values('어사원','광교',4468567);
+insert into 직원 values('학사원','광교',5234642);
+insert into 직원 values('학사원','광교',3657467);
+insert into 직원 values('배사원','광교',3464335);
+
+insert into 직원 values('김사원','목동',3634545);
+insert into 직원 values('김사원','목동',8467547);
+insert into 직원 values('김사원','목동',1254779);
+insert into 직원 values('김사원','목동',1423445);
+insert into 직원 values('김사원','목동',7546345);
+insert into 직원 values('이사원','목동',7453185);
+insert into 직원 values('이사원','목동',2546437);
+insert into 직원 values('박사원','목동',2142143);
+insert into 직원 values('박사원','목동',2132431);
+insert into 직원 values('박사원','목동',2135531);
+insert into 직원 values('최사원','목동',2341574);
+insert into 직원 values('권사원','목동',4352354);
+insert into 직원 values('진사원','목동',1645154);
+insert into 직원 values('윤사원','목동',9858376);
+
+
+insert into 직원 values('김사원','청담',3633535);
+insert into 직원 values('김사원','청담',8423414);
+insert into 직원 values('김사원','청담',1253454);
+insert into 직원 values('김사원','청담',1423432);
+insert into 직원 values('김사원','청담',7523342);
+insert into 직원 values('이사원','청담',7453434);
+insert into 직원 values('이사원','청담',2243457);
+insert into 직원 values('박사원','청담',2156843);
+insert into 직원 values('박사원','청담',2156751);
+insert into 직원 values('박사원','청담',2157567);
+insert into 직원 values('최사원','청담',2325456);
+insert into 직원 values('권사원','청담',5467684);
+insert into 직원 values('진사원','청담',5464658);
+insert into 직원 values('윤사원','청담',9878965);
+
+insert into 식당 values('강남',,'이영양사');
+insert into 식당 values('강남',,'강남','박영양사');
+insert into 식당 values('강남',,'강남','민영양사');
+insert into 식당 values('명동',,'명동','김영양사');
+insert into 식당 values('명동',,'승영양사');
+insert into 식당 values('영등포',,'최영양사');
+insert into 식당 values('영등포',,'신영양사');
+insert into 식당 values('영등포','영등포','봉영양사');
+insert into 식당 values('영등포','영등포','길영양사');
+insert into 식당 values('영등포',,'박영양사');
+insert into 식당 values('광교',,'주영양사');
+insert into 식당 values('광교','광교','은영양사');
+insert into 식당 values('광교','광교','권영양사');
+insert into 식당 values('목동',,'표영양사');
+insert into 식당 values('목동','목동','지영양사');
+insert into 식당 values('목동','목동','인영양사');
+insert into 식당 values('목동',,'서영양사');
+insert into 식당 values('목동','목동','행영양사');
+insert into 식당 values('청담',,'문영양사');
+insert into 식당 values('청담','청담','제영양사');
+insert into 식당 values('청담',,'운영양사');
+insert into 식당 values('청담',,'청영양사');
+insert into 식당 values('청담',,'무영양사');
+insert into 식당 values('청담',,'원영양사');
+insert into 식당 values('청담','청담','공영양사');
+
+
+insert into 주차회사 values(800,'소주차회사');
+insert into 주차회사 values(1500,'대주차회사');
+insert into 주차회사 values(1000,'중주차회사');
+
+
+insert into 모기업 values('장사장','신세계');
+insert into 모기업 values('황사장','한화');
+insert into 모기업 values('정사장','현대');
+insert into 모기업 values('이사장','롯데');
+
+
+insert into 브랜드 values('블랙야크','대림점');
+insert into 브랜드 values('샤넬','압구정점');
+insert into 브랜드 values('디올','광교점');
+insert into 브랜드 values('시세이도','강남점');
+insert into 브랜드 values('더페이스샵','영등포점');
+insert into 브랜드 values('정관장','보라매점');
+insert into 브랜드 values('패턴','종로점');
+insert into 브랜드 values('남양유업','명동점');
+insert into 브랜드 values('러쉬','이태원점');
+insert into 브랜드 values('알파','수원점');
+insert into 브랜드 values('록시땅','을지로점');
+insert into 브랜드 values('아디다스','선릉점');
+insert into 브랜드 values('나이키','분당점');
+
+
+insert into 매장 values(945,'아디다스');
+insert into 매장 values(945,'나이키');
+insert into 매장 values(300,'록시땅');
+insert into 매장 values(855,'알파');
+insert into 매장 values(644,'러쉬');
+insert into 매장 values(500,'남양유업');
+insert into 매장 values(948,'패턴');
+insert into 매장 values(322,'정관장');
+insert into 매장 values(645,'블랙야크');
+insert into 매장 values(758,'샤넬');
+insert into 매장 values(785,'디올');
+
+
+insert into 매장 values(345,'아디다스');
+insert into 매장 values(345,'나이키');
+insert into 매장 values(648,'록시땅');
+insert into 매장 values(451,'알파'); 
+insert into 매장 values(987,'시세이도');
+insert into 매장 values(654,'블랙야크');
+insert into 매장 values(654,'샤넬');
+insert into 매장 values(545,'디올');
+
+
+insert into 매장 values(1000,'아디다스');
+insert into 매장 values(1600,'나이키');
+insert into 매장 values(654,'록시땅');
+insert into 매장 values(454,'알파');
+insert into 매장 values(540,'패턴');
+insert into 매장 values(900,'정관장');
+insert into 매장 values(400,'더페이스샵');
+insert into 매장 values(456,'시세이도');
+insert into 매장 values(654,'블랙야크');
+insert into 매장 values(654,'샤넬');
+insert into 매장 values(789,'디올');
+
+
+insert into 매장 values(321,'아디다스');
+insert into 매장 values(456,'나이키');
+insert into 매장 values(654,'록시땅');
+insert into 매장 values(456,'패턴');
+insert into 매장 values(987,'정관장');
+insert into 매장 values(789,'더페이스샵');
+insert into 매장 values(656,'시세이도');
+insert into 매장 values(789,'블랙야크');
+insert into 매장 values(945,'샤넬');
+insert into 매장 values(454,'디올');
+
+
+insert into 매장 values(654,'아디다스');
+insert into 매장 values(454,'나이키');
+insert into 매장 values(654,'록시땅');
+insert into 매장 values(,'알파');
+insert into 매장 values(,'러쉬');
+insert into 매장 values(844,'남양유업');
+insert into 매장 values(544,'패턴');
+insert into 매장 values(,'정관장');
+insert into 매장 values(549,'더페이스샵');
+insert into 매장 values(454,'디올');
+
+insert into 매장 values(654,'아디다스');
+insert into 매장 values(644,'나이키');
+insert into 매장 values(261,'록시땅');
+insert into 매장 values(612,'알파');
+insert into 매장 values(878,'러쉬');
+insert into 매장 values(987,'남양유업');
+insert into 매장 values(612,'패턴');
+insert into 매장 values(125,'정관장');
+insert into 매장 values(456,'더페이스샵');
+insert into 매장 values(789,'시세이도');
+insert into 매장 values(462,'블랙야크');
+insert into 매장 values(258,'샤넬');
+insert into 매장 values(369,'디올');
+
+
+insert into 제품 values(30,123);
+insert into 제품 values(61,2111);
+insert into 제품 values(64,211);
+insert into 제품 values(,754);
+insert into 제품 values(,451);
+insert into 제품 values(88,1566);
+insert into 제품 values(,12);
+insert into 제품 values(,845);
+insert into 제품 values(77,6412);
+insert into 제품 values(5,541);
+insert into 제품 values(,42);
+insert into 제품 values(,8941);
+insert into 제품 values(45,4156);
+insert into 제품 values(4,45);
+insert into 제품 values(11,156);
+insert into 제품 values(648,132);
+insert into 제품 values(64,1534);
+insert into 제품 values(78,651);
+insert into 제품 values(4,548);
+insert into 제품 values(1,45);
+insert into 제품 values(,3157);
+insert into 제품 values(,84);
+insert into 제품 values(8,456);
+insert into 제품 values(7,6514);
+
+
+insert into 고객 values('김고객',121);
+insert into 고객 values('김고객',122);
+insert into 고객 values('김고객',123);
+insert into 고객 values('김고객',456);
+insert into 고객 values('이고객',455);
+insert into 고객 values('이고객',444);
+insert into 고객 values('이고객',545);
+insert into 고객 values('함고객',897);
+insert into 고객 values('함고객',788);
+insert into 고객 values('함고객',988);
+insert into 고객 values('진고객',999);
+insert into 고객 values('진고객',888);
+insert into 고객 values('진고객',787);
+insert into 고객 values('윤고객',744);
+insert into 고객 values('윤고객',457);
+insert into 고객 values('윤고객',741);
+insert into 고객 values('박고객',964);
+insert into 고객 values('박고객',156);
+insert into 고객 values('박고객',459);
+
+
+insert into 혜택 values('쿠폰증정',1);
+insert into 혜택 values('사은품증정',2);
+insert into 혜택 values('포인트적립',3);
+insert into 혜택 values('사은행사초청',4);
+insert into 혜택 values('추첨권나눔',5);
+insert into 혜택 values('카페무료증정',6);
+insert into 혜택 values('요금할인',7);
+insert into 혜택 values('거래우선순위',8);
+insert into 혜택 values('주차장자리지정,카페무료',9);
+
+
+insert into 멤버쉽 values(12,65);
+insert into 멤버쉽 values(65,564);
+insert into 멤버쉽 values(78,48);
+insert into 멤버쉽 values(44,1);
+insert into 멤버쉽 values(87,54);
+insert into 멤버쉽 values(121,11);
+insert into 멤버쉽 values(654,23);
+insert into 멤버쉽 values(56,654);
+
+
+insert into 정보이용안내 values('개인정보사용','www.s.com',1);
+insert into 정보이용안내 values('환불정책','www.k.com',2);
+insert into 정보이용안내 values('백화점정보','www.d.com',3);
+insert into 정보이용안내 values('거래내역','www.g.com',4);
+insert into 정보이용안내 values('제품사용관련','www.e.com',8);
+insert into 정보이용안내 values('직원관리','www.r.com',5);
+insert into 정보이용안내 values('브랜드이용','www.d.com',6);
+insert into 정보이용안내 values('계약서정보','wwww.f.com',7);
+
+
+insert into 부동산 values('김중개인',12465);
+insert into 부동산 values('이중개인',655454);
+insert into 부동산 values('권중개인',78946;
+insert into 부동산 values('이중개인',5178);
+
+
+insert into 부지주인 values('이서안',984466-1564564);
+insert into 부지주인 values('윤재영',987456-4515466);
+insert into 부지주인 values('진민혁',975165-4515315);
+insert into 부지주인 values('함성훈',984132-6521235);
+insert into 부지주인 values('박생재',984135-2154652);
+insert into 부지주인 values('이충만',994563-4565154);
+insert into 부지주인 values('홍지민',998742-1533245);
+insert into 부지주인 values('권신영',945756-5479871);
+
+
+insert into 급식업체 values('김사장','최영양사',56789252);
+insert into 급식업체 values('윤사장','진영양사',65484122);
+insert into 급식업체 values('황사장','김영양사',48641565);
+insert into 급식업체 values('임사장','이영양사',87456515);
+
+
+insert into 육아 values(32,1,'한솔');
+insert into 육아 values(29,5,'한솔');
+insert into 육아 values(54,1,'한솔');
+insert into 육아 values(34,3,'서안');
+insert into 육아 values(31,1,'서안');
+insert into 육아 values(25,2,'서안');
+insert into 육아 values(26,1,'서안');
+insert into 육아 values(31,2,'서안');
+insert into 육아 values(24,2,'신영');
+insert into 육아 values(32,1,'신영');
+insert into 육아 values(33,2,'신영');
+insert into 육아 values(29,1,'신영');
+
+insert into 동아리 values(87,'조기축구');
+insert into 동아리 values(54,'영화감상');
+insert into 동아리 values(2000,'맛집탐구');
+insert into 동아리 values(10,'독서회');
+
+d
+insert into 제휴기업 values('','삼성');
+insert into 제휴기업 values('식음료','현대');
+insert into 제휴기업 values('숙소','한화');
+insert into 제휴기업 values('면세','롯데');
+insert into 제휴기업 values('','LG');
+insert into 제휴기업 values('크루즈','한진');
+insert into 제휴기업 values('','신세계');
+insert into 제휴기업 values('식음료','남양');
+
+
+insert into 휴가 values(10,20151102);
+insert into 휴가 values(5,20160514);
+insert into 휴가 values(6,20150321);
+insert into 휴가 values(9,20160507);
+insert into 휴가 values(11,20170808);
+insert into 휴가 values(15,20170408);
+insert into 휴가 values(3,20160805);
+insert into 휴가 values(1,20150408);
+insert into 휴가 values(2,20160507);
+
+
+insert into 사이트 values(1246432,'다음','kjl123');
+insert into 사이트 values(2453624,'다음','sdfjl2222');
+insert into 사이트 values(5645877,'다음','asdfsf1');
+insert into 사이트 values(3646776,'다음','wldkzh234');
+insert into 사이트 values(9685746,'네이버','adsljk56');
+insert into 사이트 values(1035776,'네이버','sdfsfdh7');
+insert into 사이트 values(3347354,'네이버','asdff777');
+insert into 사이트 values(5234642,'네이버','sfsf343');
+insert into 사이트 values(8467489,'다음','sfgdf23');
+insert into 사이트 values(8646824,'다음','ionkn297');
+insert into 사이트 values(2585675,'야후','sdfslhi2');
+insert into 사이트 values(1423445,'야후','dsglh23');
+insert into 사이트 values(3633535,'다음','sdfsjlfi3434');
+insert into 사이트 values(7523342,'다음','dgsd434');
+
+
+insert into IT회사 values('역삼','박사장','게시판운영','다음');
+insert into IT회사 values('분당','최사장','정보관리','네이버');
+insert into IT회사 values('명동','김사장','게시판운영','야후');
+
+insert into 경쟁기업 values('경기','경기도',300000000,'','경기');
+insert into 경쟁기업 values('LG','강남',60000000,'식음료','헬지');
+insert into 경쟁기업 values('무민스','스웨덴',65485456798525','인형','무민');
+
+insert into 이벤트 values(20170505,'어린이날행사');
+insert into 이벤트 values(20170408,'창립기념일');
+insert into 이벤트 values(20170105,'음악회');
+insert into 이벤트 values(20160805,'음료시음회');
+insert into 이벤트 values(20160509,'가정의달행사');
+
+insert into 임차계약 values(12465,''984466-1564564','청담',10000000000);
+insert into 임차계약 values(12465,'945756-5479871','강남',10000000000);
+insert into 임차계약 values(655454,'984132-6521235','영등포',200000000000);
+insert into 임차계약 values(78946,'998742-1533245','광교',600000000000);
+insert into 임차계약 values(78946,'984135-2154652','목동',500000000000);
+insert into 임차계약 values(5178,'994563-4565154','수원',700000000000);
+
+
+insert into 경쟁 values('경기','광교');
+insert into 경쟁 values('경기','수원');
+insert into 경쟁 values('무민','광교');
+insert into 경쟁 values('무민','수원');
+insert into 경쟁 values('무민','영등포');
+insert into 경쟁 values('무민','청담');
+insert into 경쟁 values('무민','강남');
+insert into 경쟁 values('헬지','헬지');
+insert into 경쟁 values('헬지','목동');
+insert into 경쟁 values('헬지','명동');
+insert into 경쟁 values('헬지','강남');
+insert into 경쟁 values('헬지','청담');
+
+
+insert into 고객서비스 values(1,65,1,'강남');
+insert into 고객서비스 values(1,1,2,'강남');
+insert into 고객서비스 values(1,11,4,'강남');
+insert into 고객서비스 values(1,654,5,'강남');
+insert into 고객서비스 values(2,654,1,'강남');
+insert into 고객서비스 values(2,54,6,'강남');
+insert into 고객서비스 values(4,48,8,'강남');
+insert into 고객서비스 values(7,54,4,'강남');
+insert into 고객서비스 values(1,654,3,'청담');
+insert into 고객서비스 values(1,54,1,'청담');
+insert into 고객서비스 values(2,54,2,'청담');
+insert into 고객서비스 values(5,48,4,'청담');
+insert into 고객서비스 values(6,48,5,'청담');
+insert into 고객서비스 values(5,564,6,'청담');
+insert into 고객서비스 values(7,564,7,'청담');
+insert into 고객서비스 values(8,11,8,'청담');
+insert into 고객서비스 values(3,65,1,'목동');
+insert into 고객서비스 values(4,54,3,'목동');
+insert into 고객서비스 values(5,564,5,'목동');
+insert into 고객서비스 values(6,11,7,'목동');
+insert into 고객서비스 values(7,1,8,'목동');
+insert into 고객서비스 values(6,2,1,'목동');
+insert into 고객서비스 values(2,11,1,'광교');
+insert into 고객서비스 values(2,1,2,'광교');
+insert into 고객서비스 values(2,65,3,'광교');
+insert into 고객서비스 values(1,1,1,'수원');
+insert into 고객서비스 values(2,564,8,'영등표');
+
+
+insert into 공급 values(,'');
+
+
+insert into 복지 values();
+
+
+insert into 주차 values();
+
+
+insert into 구매 values();
+
+
+insert into 할인 values();

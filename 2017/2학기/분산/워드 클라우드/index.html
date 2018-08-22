@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/lib/w3.js"></script>
+    <link rel="stylesheet" href="styles.css" type="text/css" media="screen" />
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.tablesorter.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#keyword").keyup(function() {
+                var k = $(this).val();
+                $("#user-table > tbody > tr").hide();
+                var temp = $("#user-table > tbody > tr > td:nth-child(1):contains('" + k + "')");
+
+                $(temp).parent().show();
+            })
+        })
+
+    </script>
+    <style>
+        #container {
+            width: 960px;
+            margin: 0 auto;
+        }
+
+        #container #table-responsive #input-form {
+            margin: auto;
+            text-align: center;
+        }
+
+        #user-table {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #input-form {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #user-table {
+            border-collapse: collapse;
+        }
+
+        #user-table>thead>tr {
+            background-color: #333;
+            color: #fff;
+        }
+
+        #user-table>thead>tr>th {
+            text-align: center;
+            padding: 8px;
+            width: 150px;
+        }
+
+        #user-table>tbody>tr>td {
+            border-bottom: 1px solid gray;
+            padding: 8px;
+        }
+
+        text:hover {
+            stroke: black;
+        }
+
+
+    </style>
+    <title>word cloud</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="table-responsive">
+            <h1 align="center">Data Table</h1>
+            <br />
+            <div id="input-form" align="center">
+                word : <input type="text" id="keyword" />
+            </div>
+            <br>
+            <div align="center">
+                <button type="button" name="load_data" id="load_data" class="btn btn-info">Load Data</button>
+            </div>
+            <br />
+
+            <div id="csvtable">
+
+            </div>
+
+        </div>
+    
+    </div>
+    <div id="cloud"></div>
+     <script type="text/javascript">
+    var weight = 2,   // change me
+        width = 1600,
+        height = 650;
+
+    var fill = d3.scale.category20();
+    d3.csv("analysis.csv", function(d) {
+        return {
+          text: d.word,
+          size: +d.freq*weight
+        }
+      },
+      function(data) {
+        d3.layout.cloud().size([width, height]).words(data)
+          //.rotate(function() { return ~~(Math.random() * 2) * 90; })
+          .rotate(0)
+          .font("Impact")
+          .fontSize(function(d) { return d.size; })
+          .on("end", draw)
+          .start();
+
+        function draw(words) {
+          d3.select("#cloud").append("svg")
+              .attr("width", width)
+              .attr("height", height)
+            .append("g")
+              .attr("transform", "translate(" + width/2 + "," + height/2 + ")")
+            .selectAll("text")
+              .data(words)
+            .enter().append("text")
+              .style("font-size", function(d) { return d.size + "px"; })
+              .style("font-family", "Impact")
+              .style("fill", function(d, i) { return fill(i); })
+              .attr("text-anchor", "middle")
+              .attr("transform", function(d) {
+                return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+              })
+            .text(function(d) { return d.text; });
+        }
+      });
+  </script>
+
+    
+</body>
+
+</html>
+<script>
+    $(document).ready(function() {
+        $('#load_data').click(function() {
+            $.ajax({
+                url: "analysis.csv",
+                dataType: "text",
+                success: function(data) {
+                    var csv_data = data.split(/\r?\n|\r/);
+                    var table_data = '<table id=user-table class="table table-bordered table-striped">';
+                    for (var count = 0; count < csv_data.length; count++) {
+
+
+                        if (count === 0) {
+                            table_data += '<thead>';
+                            table_data += '<tr>';
+                        } else {
+                            table_data += '<tr>';
+                        }
+                        var cell_data = csv_data[count].split(',');
+                        for (var cell_count = 0; cell_count < cell_data.length; cell_count++) {
+                            if (count === 0) {
+                                table_data += '<th>';
+                                table_data += cell_data[cell_count];
+                                table_data += '</th>';
+                            } else {
+                                table_data += '<td>';
+                                table_data += cell_data[cell_count];
+                                table_data += '</td>';
+                            }
+                        }
+                        if (count === 0) {
+                            table_data += '</tr>';
+                            table_data += '</thead>';
+                            table_data += '<tbody>';
+                        } else {
+                            table_data += '</tr>';
+                        }
+
+                    }
+                    table_data += '</table>';
+                    $('#csvtable').html(table_data);
+                }
+            });
+        });
+
+
+
+    });
+
+</script>

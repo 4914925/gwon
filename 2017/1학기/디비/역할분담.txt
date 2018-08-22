@@ -1,0 +1,16 @@
+권신영
+
+기말과제 보고서 작성
+요구사항분석
+er다이어그램 수정후
+DML insert, DML select 작성
+발표자료 작성
+
+이서안
+
+기말과제 제안서 작성
+요구사항분석
+er다이어그램 수정전 
+DDL create, DDL drop 작성
+DML delete, DML update, DML insert 작성
+er다이어그램으로부터 관계형 데이터 테이블로의 변환
